@@ -2,11 +2,12 @@
 MSCH-C220 Game Jam, April 2021
 
 ## Theme
-How you thought about or interpreted the theme
+Every Death Counts
+We took this quite literally. The goal is to score as many points as possible as coins don't respond once you die.
 
 ## Game Play
-Objective
-Game-play instructions
+Your goal is to score as many coins as possible without dying. Once you die, your score goes back to zero and coins don't respond. Every death counts!
+Use WASD to move your character. W is jump, A moves left, S bends down, D moves to the right. 
 
 ## Impediments
 Struggles or surprises you encountered during the development of the game
@@ -20,4 +21,6 @@ Assets, or resources used
 ## Future Development
 
 # Created by: Group Name
-List of group members (and contributions)
+Camilla - Assets, Levels, Base of gaeme
+Brittney - score Board, ReadMe, death board
+Brayden - Enemies, Coins

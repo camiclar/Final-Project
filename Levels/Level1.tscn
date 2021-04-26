@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/portal_start.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Levels/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Tiles.png" type="Texture" id=6]
 [ext_resource path="res://Levels/Spawn.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Enemy 1.png" type="Texture" id=8]
+[ext_resource path="res://Levels/Enemy1.gd" type="Script" id=9]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -480,6 +482,22 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 7/shapes = [  ]
 7/z_index = 0
 
+[sub_resource type="CapsuleShape2D" id=20]
+radius = 21.5137
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+} ]
+
 [node name="Game" type="Node2D"]
 
 [node name="Background" type="TileMap" parent="."]
@@ -538,4 +556,27 @@ tile_data = PoolIntArray( 458756, 0, 0, 458763, 6, 0, 458764, 6, 0, 589837, 6, 0
 
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 process_mode = 0
+
+[node name="Enemy1" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Enemy1"]
+position = Vector2( 1123.93, 596.07 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy1/KinematicBody2D"]
+shape = SubResource( 20 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemy1/KinematicBody2D"]
+position = Vector2( 0.12159, 1.5 )
+frames = SubResource( 21 )
+animation = "Run"
+__meta__ = {
+"_edit_group_": true
+}
 [connection signal="body_entered" from="Exit_to_2" to="Exit_to_2" method="_on_Exit_body_entered"]

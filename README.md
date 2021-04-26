@@ -22,5 +22,5 @@ Assets, or resources used
 
 # Created by: Group Name
 Camilla - Assets, Levels, Base of gaeme
-Brittney - score Board, ReadMe, death board
+Brittney - Score board, ReadMe, Enemies 
 Brayden - Enemies, Coins

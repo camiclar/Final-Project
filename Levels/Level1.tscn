@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/portal_start.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Levels/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Tiles.png" type="Texture" id=6]
 [ext_resource path="res://Levels/Spawn.gd" type="Script" id=7]
+[ext_resource path="res://Enemy/Enemy1.tscn" type="PackedScene" id=8]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -521,12 +522,19 @@ limit_right = 3760
 limit_bottom = 600
 
 [node name="Enemy_Container" type="Node2D" parent="."]
+light_mask = 4
+position = Vector2( 2538.88, 590.139 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Enemy1" parent="Enemy_Container" instance=ExtResource( 8 )]
 
 [node name="Platform" type="TileMap" parent="."]
 tile_set = SubResource( 18 )
 collision_friction = 0.0
 format = 1
-tile_data = PoolIntArray( 458760, 8, 0, 458761, 10, 0, 524290, 0, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 9, 0, 524297, 11, 0, 524298, 1, 0, 524299, 1, 0, 524300, 2, 0, 655373, 0, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 655380, 1, 0, 655381, 1, 0, 655382, 1, 0, 655383, 1, 0, 655384, 1, 0, 655385, 1, 0, 655386, 1, 0, 655387, 1, 0, 655388, 1, 0, 655389, 1, 0, 655390, 1, 0, 655391, 1, 0, 655392, 1, 0, 655393, 1, 0, 655394, 1, 0, 655395, 1, 0, 655396, 1, 0, 655397, 1, 0, 655398, 1, 0, 655399, 1, 0, 655400, 1, 0, 655401, 1, 0, 655402, 1, 0, 655403, 1, 0, 655404, 1, 0, 655405, 1, 0, 655406, 1, 0, 655407, 1, 0, 655408, 1, 0, 655409, 1, 0, 655410, 1, 0, 655411, 1, 0, 655412, 1, 0, 655413, 1, 0, 655414, 1, 0, 655415, 1, 0, 655416, 1, 0, 655417, 1, 0, 655418, 2, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 458760, 8, 0, 458761, 10, 0, 524290, 0, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 9, 0, 524297, 11, 0, 524298, 1, 0, 524299, 1, 0, 524300, 2, 0, 589852, 8, 0, 589853, 0, 0, 589874, 0, 0, 589875, 10, 0, 655373, 0, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 655380, 1, 0, 655381, 1, 0, 655382, 1, 0, 655383, 1, 0, 655384, 1, 0, 655385, 1, 0, 655386, 1, 0, 655387, 1, 0, 655388, 1, 0, 655389, 1, 0, 655390, 1, 0, 655391, 1, 0, 655392, 1, 0, 655393, 1, 0, 655394, 1, 0, 655395, 1, 0, 655396, 1, 0, 655397, 1, 0, 655398, 1, 0, 655399, 1, 0, 655400, 1, 0, 655401, 1, 0, 655402, 1, 0, 655403, 1, 0, 655404, 1, 0, 655405, 1, 0, 655406, 1, 0, 655407, 1, 0, 655408, 1, 0, 655409, 1, 0, 655410, 1, 0, 655411, 1, 0, 655412, 1, 0, 655413, 1, 0, 655414, 1, 0, 655415, 1, 0, 655416, 1, 0, 655417, 1, 0, 655418, 2, 0 )
 
 [node name="Foreground" type="TileMap" parent="."]
 tile_set = SubResource( 19 )
@@ -538,4 +546,7 @@ tile_data = PoolIntArray( 458756, 0, 0, 458763, 6, 0, 458764, 6, 0, 589837, 6, 0
 
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 process_mode = 0
+
+[node name="Coin_Container" type="Node2D" parent="."]
+position = Vector2( 4.078, 8.15598 )
 [connection signal="body_entered" from="Exit_to_2" to="Exit_to_2" method="_on_Exit_body_entered"]

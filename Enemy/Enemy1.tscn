@@ -3,7 +3,8 @@
 [ext_resource path="res://Enemy/Enemy1.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Enemy1.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=20]
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 74.1868
 
 [node name="Enemy1" type="KinematicBody2D"]
 scale = Vector2( 0.5, 0.5 )
@@ -19,5 +20,5 @@ polygon = PoolVector2Array( 30, -61.5, 30, -59.1, 36, -48, 36, -30.5, 34.3, -30.
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 20 )
+shape = SubResource( 1 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

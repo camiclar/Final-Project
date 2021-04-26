@@ -55,6 +55,9 @@ func set_animation(anim):
 	if $AnimatedSprite.frames.has_animation(anim): $AnimatedSprite.play(anim)
 	else: $AnimatedSprite.play()
 
+func do_damage(d):
+	queue_free()
+	
 func die():
 	queue_free()
 
